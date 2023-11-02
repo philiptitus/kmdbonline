@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content goes here -->
+</head>
+<body class="bg-black">
+
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+<div class="container bg-black">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="card">
+          <img src="../static/images/{{ product[5] }}" alt="">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="card px-5">
+          <i>Film ID:{{ product[0] }}<i>
+          <h3>{{ product[1] }}</h3>
+          <p>{{ product[2] }}</p>
+          <h4>Rating: {{ '%.1f'|format(product[6]) }}</h4>
+          <h4>Duration: {{ product[3] }} hours</h4>
+          <a href="/ratings" class="btn btn-danger">RATE</a>
+        </div>
+      </div>
+    </div>
+</div>
+{% include 'components/footer.html' %}

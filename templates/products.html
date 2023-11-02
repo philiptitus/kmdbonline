@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content goes here -->
+</head>
+<body class="bg-black">
+
+
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+<h1>Showing All {{cat_name}}</h1>
+
+<div class="container-fluid">
+    <div class="row">
+      {% for product in products %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card">
+            <img src="../static/images/{{ product[5] }}" alt="" class="card-img-top" width="50px" height="280px">
+            <div class="card-body">
+              <h5 class="card-title">{{ product[1] }}</h5>
+              <h5 class="card-title">DURATION :{{ product[3] }} Hours</h5>
+              <p class="card-text">{{ product[2] }}</p>
+              <a href="/product/{{ product[0] }}" class="btn btn-primary">VIEW</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+{% include 'components/footer.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

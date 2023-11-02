@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content goes here -->
+</head>
+<body class="bg-black">
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+<div class="container bg-black">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+        <p class="display-1" >Login To Your Account</p>
+       
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="card px-5 py-5">
+              {% if msg %}
+             <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+             {{ msg }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endif %} 
+        <form action="do-login" method="POST">
+            <label for="" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email">
+            <label for="" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password"> 
+            <br>
+            <button class="btn btn-danger" type="submit">LOGIN</button>
+
+
+
+
+
+
+
+
+        </form>
+    </div> 
+
+</div>
+</div> 
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'components/footer.html' %}

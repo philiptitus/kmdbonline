@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content goes here -->
+</head>
+<body class="bg-black">
+
+{% include 'components/header.html' %}
+{% include 'components/usernavbar.html' %}
+<div class="container bg-black">
+    <p class="display-5">Welcome {{ data[0] }} {{ data[1] }}</p>
+</div>
+{% include 'components/footer.html' %}

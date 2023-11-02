@@ -1,0 +1,186 @@
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+{% include 'components/carousel.html' %}
+<section class="slider p-4">
+  <style>
+    body {
+      background-color: #090202;
+      color: #fff;
+    }
+  </style>
+  <div id="slider" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      {% for product in products %}
+      <li data-bs-target="#slider" data-bs-slide-to="{{ loop.index0 }}" {% if loop.first %}class="active"{% endif %}></li>
+      {% endfor %}
+    </ol>
+  
+    <!-- Slides -->
+    <div class="carousel-inner">
+      {% set activeIndex = 0 %}
+      {% for product in products %}
+      {% if loop.index0 % 3 == 0 %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="row">
+      {% endif %}
+          <div class="col-md-4">
+            <div class="box">
+              <div class="slide-img">
+                <img src="../static/images/{{ product[5] }}" alt="" width="150px">
+                <div class="overlay">
+                  <a href="/product/{{ product[0] }}" class="buy-btn">View Film</a>
+                </div>
+              </div>
+              <div class="detail-box">
+                <h3>{{ product[1] }}</h3>
+                <p><b class="text-warning">Duration:</b> {{ product[3] }} hours</p>
+              </div>
+            </div>
+          </div>
+      {% if loop.index0 % 3 == 2 or loop.last %}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  
+    <!-- Navigation buttons -->
+    <a class="carousel-control-prev" href="#slider" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#slider" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  
+  
+  
+  
+  <div class="text-center">
+    <button class="btn btn-secondary prev-btn" type="button">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="btn btn-secondary next-btn" type="button">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+    </ul>
+  
+</section>
+
+
+
+  <div class="container-fluid">
+    <h3 class="bg-transparent">Drama<a href="/categories/dramas">View All</a></h3>
+    <div class="row">
+      {% for drama in dramas %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card">
+            <img src="../static/images/{{ drama[5] }}" alt="" class="card-img-top" width="50px" height="280px">
+            <div class="card-body">
+              <h5 class="card-title" style="color: red;">{{ drama[1] }}</h5>
+              <h5 class="card-title" style="color: rgb(93, 29, 29);">Time: {{ drama[3] }} Hours</h5>
+              <h5 class="card-title" style="color: rgb(7, 7, 7);">{{ drama[2] }}</h5>
+              <h5 class="card-title" style="color: red;"> Rating: {{ drama[6] }}</h5>
+              <a href="/product/{{ drama[0] }}" class="btn btn-primary">View Film</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <h3 class="bg-transparent">Action<a href="/categories/actions">View All</a></h3>
+    <div class="row">
+      {% for action in actions %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card">
+            <img src="../static/images/{{ action[5] }}" alt="" class="card-img-top" width="50px" height="280px">
+            <div class="card-body">
+              <h5 class="card-title" style="color: red;">{{ action[1] }}</h5>
+              <h5 class="card-title" style="color: rgb(93, 29, 29);">Time: {{ action[3] }} Hours</h5>
+              <h5 class="card-title" style="color: rgb(8, 8, 8);">{{ action[2] }}</h5>
+              <h5 class="card-title" style="color: red;">Rating: {{ action[6] }}</h5>
+              <a href="/product/{{ action[0] }}" class="btn btn-primary">View Film</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <style>
+      .slider {
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      .cs-hidden {
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      
+      .cs-hidden > li {
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: top;
+      }
+      </style>
+      
+
+    <h3 class="bg-transparent">Horror<a href="/categories/horrors">View All</a></h3>
+    <div class="row">
+      {% for horror in horrors%}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card">
+            <img src="../static/images/{{ horror[5] }}" alt="" class="card-img-top" width="50px" height="280px">
+            <div class="card-body">
+              <h5 class="card-title" style="color: red;">{{ horror[1] }}</h5>
+              <h5 class="card-title" style="color: rgb(93, 29, 29);">Time: {{ horror[3] }} Hours</h5>
+              <h5 class="card-title" style="color: rgb(6, 6, 6);">{{ horror[2] }} </h5>
+              <h5 class="card-title" style="color: red;">Rating: {{ horror[6] }}</h5>
+              <a href="/product/{{ horror[0] }}" class="btn btn-primary">View Film</a>
+             
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h3 class="bg-transparent">Romance<a href="/categories/romances">View All</a></h3>
+    <div class="row">
+      {% for romance in romances%}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card">
+            <img src="../static/images/{{ romance[5] }}" alt="" class="card-img-top" width="50px" height="280px">
+            <div class="card-body">
+              <h5 class="card-title" style="color: red;">{{ romance[1] }}</h5>
+              <h5 class="card-title" style="color: rgb(93, 29, 29);"> Time: {{ romance[3] }} Hours</h5>
+              <h5 class="card-title" style="color: rgb(7, 7, 7);">{{ romance[2] }}</h5>
+              <h5 class="card-title" style="color: red;">Rating: {{ romance[6] }}</h5>
+              <a href="/product/{{ romance[0] }}" class="btn btn-primary">View Film</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div> 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'components/footer.html' %}

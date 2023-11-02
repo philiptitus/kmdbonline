@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content goes here -->
+</head>
+<body class="bg-black">
+
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+<div class="container bg-black">
+    <h1>ADD YOUR DETAILS HERE</h1>
+    {% if msg %}
+    <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+        {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+    <form action="/save-user" method="POST" enctype="multipart/form-data">
+        <label for="" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="f_name">
+        <label for="" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="l_name">
+        <label for="" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email">
+        <label for="" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" name="phone">
+        <label for="" class="form-label">DOB</label>
+        <input type="date" class="form-control" name="dob">
+        <label for="" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password">
+        <label for="" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="c_password">
+         <br>
+         <button class="btn btn-danger" type="submit">Register</button>
+
+
+
+    </form>
+</div>
+{% include 'components/footer.html' %}

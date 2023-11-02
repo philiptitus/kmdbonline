@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content goes here -->
+</head>
+<body class="bg-black">
+
+{% include 'components/header.html' %}
+{% include 'components/navbar.html' %}
+
+<div class="container" "text-danger">
+    <h1 text-danger>Add a Kenyan Film Below</h1>
+    {% if msg %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      <form action="/save-products" method="POST" enctype="multipart/form-data">
+        <label for="" class="form-label text-danger">Movie Title</label>
+        <input type="text" class="form-control" name="product_name">
+        <label for="" class="form-label text-danger">Movie Description</label>
+        <textarea name="product_desc" id="" cols="30" rows="10" class="form-control text-red"></textarea>
+        <label for="" class="form-label text-danger">Movie Duration</label>
+        <input type="number" class="form-control" name="product_cost">
+        <label for="" class="form-label text-danger">Movie Category</label>
+        <input type="text" class="form-control" name="product_cat">
+        <label for="" class="form-label text-danger">Movie Poster</label>
+        <input type="file" class="form-control" name="product_image">
+        <br>
+        <button class="btn btn-info text-danger" type="submit">Submit Movie</button>
+    </form>
+    
+</div>
+{% include 'components/footer.html' %}
+
